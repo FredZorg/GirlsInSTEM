@@ -49,9 +49,31 @@
       <section class="panel panel--room" aria-label="Room preview">
         <div class="room" id="room">
           <div class="room__wall">
-            <div class="poster" id="poster" aria-hidden="true">
-              <div class="poster__title" id="posterTitle">Be Kind</div>
-              <div class="poster__shape"></div>
+            <div class="wall-decor" aria-hidden="true">
+              <div class="frame frame--1" id="frame1">
+                <div class="frame__mat"></div>
+                <div class="frame__art frame__art--1"></div>
+              </div>
+
+              <div class="frame frame--2" id="frame2">
+                <div class="frame__mat"></div>
+                <div class="frame__art frame__art--2"></div>
+              </div>
+
+              <div class="shelf" id="shelf">
+                <div class="shelf__board"></div>
+                <div class="shelf__book shelf__book--1"></div>
+                <div class="shelf__book shelf__book--2"></div>
+                <div class="shelf__book shelf__book--3"></div>
+                <div class="shelf__plant"></div>
+              </div>
+
+              <div class="clock" id="clock">
+                <div class="clock__face"></div>
+                <div class="clock__hand clock__hand--hour"></div>
+                <div class="clock__hand clock__hand--min"></div>
+                <div class="clock__dot"></div>
+              </div>
             </div>
 
             <div class="window" id="window" aria-hidden="true">
@@ -73,13 +95,18 @@
             </div>
 
             <div class="bed" id="bed" aria-hidden="true">
-              <div class="bed__frame"></div>
+              <div class="bed__headboard"></div>
+              <div class="bed__base"></div>
+              <div class="bed__mattress"></div>
               <div class="bed__blanket"></div>
-              <div class="bed__pillow"></div>
+              <div class="bed__pillow bed__pillow--1"></div>
+              <div class="bed__pillow bed__pillow--2"></div>
             </div>
 
             <div class="lamp" id="lamp" aria-hidden="true">
+              <div class="lamp__glow"></div>
               <div class="lamp__shade"></div>
+              <div class="lamp__bulb"></div>
               <div class="lamp__pole"></div>
               <div class="lamp__base"></div>
             </div>
@@ -98,7 +125,7 @@
           <ul class="legend__list">
             <li>Wall / floor colors</li>
             <li>Bed / desk / rug colors</li>
-            <li>Poster text + color</li>
+            <li>Wall decorations (frames, shelf, clock)</li>
             <li>Turn plant / lamp / window on/off</li>
           </ul>
         </div>

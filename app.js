@@ -11,10 +11,16 @@ const DEFAULT_TEXT = `{
   "deskColor": "#7c5cff",
   "rugColor": "#3dd6d0",
 
-  "poster": {
-    "show": true,
-    "text": "Be Kind",
-    "color": "#ffd166"
+  "wallDecor": {
+    "showFrame1": true,
+    "showFrame2": true,
+    "showShelf": true,
+    "showClock": true,
+    "frameColor": "white",
+    "art1Color": "#ffd166",
+    "art2Color": "#a7f3d0",
+    "shelfColor": "rgba(0,0,0,0.35)",
+    "clockColor": "rgba(255,255,255,0.9)"
   },
 
   "window": {
@@ -35,8 +41,10 @@ const resetBtn = document.getElementById("resetBtn");
 const statusDot = document.getElementById("statusDot");
 const statusText = document.getElementById("statusText");
 
-const posterEl = document.getElementById("poster");
-const posterTitleEl = document.getElementById("posterTitle");
+const frame1El = document.getElementById("frame1");
+const frame2El = document.getElementById("frame2");
+const shelfEl = document.getElementById("shelf");
+const clockEl = document.getElementById("clock");
 const windowEl = document.getElementById("window");
 const lampEl = document.getElementById("lamp");
 const plantEl = document.getElementById("plant");
@@ -94,17 +102,28 @@ function applyConfig(config) {
   root.style.setProperty("--blanket", blanket);
   root.style.setProperty("--pillow", pillow);
 
-  const poster = config.poster ?? {};
-  const showPoster = boolOrDefault(poster.show, true);
-  const posterColor = cssColorOrNull(poster.color) ?? "#ffd166";
-  const posterText =
-    typeof poster.text === "string" && poster.text.trim()
-      ? poster.text.trim().slice(0, 24)
-      : "Be Kind";
+  const decor = config.wallDecor ?? {};
+  const showFrame1 = boolOrDefault(decor.showFrame1, true);
+  const showFrame2 = boolOrDefault(decor.showFrame2, true);
+  const showShelf = boolOrDefault(decor.showShelf, true);
+  const showClock = boolOrDefault(decor.showClock, true);
 
-  posterEl.style.display = showPoster ? "" : "none";
-  posterEl.style.background = posterColor;
-  posterTitleEl.textContent = posterText;
+  const frameColor = cssColorOrNull(decor.frameColor) ?? "white";
+  const art1Color = cssColorOrNull(decor.art1Color) ?? "#ffd166";
+  const art2Color = cssColorOrNull(decor.art2Color) ?? "#a7f3d0";
+  const shelfColor = cssColorOrNull(decor.shelfColor) ?? "rgba(0,0,0,0.35)";
+  const clockColor = cssColorOrNull(decor.clockColor) ?? "rgba(255,255,255,0.9)";
+
+  root.style.setProperty("--frame", frameColor);
+  root.style.setProperty("--art1", art1Color);
+  root.style.setProperty("--art2", art2Color);
+  root.style.setProperty("--shelf", shelfColor);
+  root.style.setProperty("--clock", clockColor);
+
+  frame1El.style.display = showFrame1 ? "" : "none";
+  frame2El.style.display = showFrame2 ? "" : "none";
+  shelfEl.style.display = showShelf ? "" : "none";
+  clockEl.style.display = showClock ? "" : "none";
 
   const win = config.window ?? {};
   const showWindow = boolOrDefault(win.show, true);

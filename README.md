@@ -31,7 +31,8 @@ In the JSON, try changing:
 
 - `wallColor`, `floorColor`, `deskColor`, `rugColor`
 - `bed.frameColor`, `bed.blanketColor`, `bed.pillowColor`
-- `poster.text` (short message) and `poster.color`
+- `wallDecor.showFrame1`, `wallDecor.showFrame2`, `wallDecor.showShelf`, `wallDecor.showClock`
+- `wallDecor.frameColor`, `wallDecor.art1Color`, `wallDecor.art2Color`, `wallDecor.shelfColor`, `wallDecor.clockColor`
 - `extras.showLamp` / `extras.showPlant` (true/false)
 - `window.show` / `window.skyColor`
 

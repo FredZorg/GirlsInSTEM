@@ -13,7 +13,12 @@
   --pillow: #ffffff;
   --desk: #7c5cff;
   --rug: #3dd6d0;
-  --poster: #ffd166;
+  --frame: #ffffff;
+  --mat: rgba(255, 255, 255, 0.6);
+  --art1: #ffd166;
+  --art2: #a7f3d0;
+  --shelf: rgba(0, 0, 0, 0.35);
+  --clock: rgba(255, 255, 255, 0.9);
   --windowSky: #7dd3fc;
 }
 
@@ -192,34 +197,168 @@ body {
     var(--floor);
 }
 
-.poster {
+.wall-decor {
   position: absolute;
-  left: 16px;
-  top: 16px;
-  width: 130px;
-  height: 90px;
-  background: var(--poster);
-  border-radius: 12px;
+  inset: 0;
+}
+
+.frame {
+  position: absolute;
+  width: 132px;
+  height: 92px;
+  border-radius: 14px;
+  background: var(--frame);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
   border: 2px solid rgba(0, 0, 0, 0.14);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-  display: grid;
-  place-items: center;
   overflow: hidden;
 }
 
-.poster__title {
-  font-weight: 900;
-  font-size: 16px;
-  color: rgba(0, 0, 0, 0.75);
-  z-index: 2;
+.frame--1 {
+  left: 16px;
+  top: 16px;
 }
 
-.poster__shape {
+.frame--2 {
+  left: 162px;
+  top: 28px;
+  width: 110px;
+  height: 78px;
+}
+
+.frame__mat {
   position: absolute;
-  inset: -20px;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 60%),
-    radial-gradient(circle at 70% 70%, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0) 55%);
-  transform: rotate(8deg);
+  inset: 10px;
+  border-radius: 12px;
+  background: var(--mat);
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.08);
+}
+
+.frame__art {
+  position: absolute;
+  inset: 18px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.08);
+}
+
+.frame__art--1 {
+  background:
+    radial-gradient(circle at 25% 30%, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 55%),
+    radial-gradient(circle at 70% 75%, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0) 60%),
+    var(--art1);
+}
+
+.frame__art--2 {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0) 55%),
+    radial-gradient(circle at 75% 25%, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0) 60%),
+    var(--art2);
+}
+
+.shelf {
+  position: absolute;
+  left: 20px;
+  top: 124px;
+  width: 220px;
+  height: 54px;
+}
+
+.shelf__board {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 14px;
+  border-radius: 10px;
+  background: var(--shelf);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.18);
+}
+
+.shelf__book {
+  position: absolute;
+  bottom: 10px;
+  width: 16px;
+  height: 34px;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.12);
+}
+
+.shelf__book--1 {
+  left: 18px;
+  background: #60a5fa;
+}
+.shelf__book--2 {
+  left: 40px;
+  height: 30px;
+  background: #f472b6;
+}
+.shelf__book--3 {
+  left: 60px;
+  height: 32px;
+  background: #fbbf24;
+}
+
+.shelf__plant {
+  position: absolute;
+  right: 14px;
+  bottom: 10px;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background:
+    radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0) 55%),
+    #22c55e;
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.12);
+}
+
+.clock {
+  position: absolute;
+  left: 280px;
+  top: 20px;
+  width: 66px;
+  height: 66px;
+}
+
+.clock__face {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0) 55%),
+    var(--clock);
+  border: 3px solid rgba(0, 0, 0, 0.18);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+}
+
+.clock__hand {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 4px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 999px;
+  transform-origin: bottom center;
+}
+
+.clock__hand--hour {
+  height: 18px;
+  transform: translate(-50%, -100%) rotate(35deg);
+}
+
+.clock__hand--min {
+  height: 26px;
+  transform: translate(-50%, -100%) rotate(140deg);
+  opacity: 0.85;
+}
+
+.clock__dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.6);
+  transform: translate(-50%, -50%);
 }
 
 .window {
@@ -335,34 +474,71 @@ body {
   height: 72%;
 }
 
-.bed__frame {
+.bed__headboard {
   position: absolute;
-  inset: 0;
+  left: 0;
+  right: 18%;
+  top: 0;
+  height: 34%;
+  background: var(--bedFrame);
+  filter: brightness(0.72);
+  border-radius: 18px 18px 14px 14px;
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.22);
+}
+
+.bed__base {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 72%;
   background: var(--bedFrame);
   border-radius: 18px;
   box-shadow: 0 16px 30px rgba(0, 0, 0, 0.28);
+}
+
+.bed__mattress {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  top: 18%;
+  bottom: 10px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.08);
 }
 
 .bed__blanket {
   position: absolute;
   left: 12px;
   right: 12px;
-  top: 26px;
+  top: 30%;
   bottom: 12px;
-  background: radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0) 60%),
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0) 40%),
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0) 60%),
     var(--blanket);
   border-radius: 14px;
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.08);
 }
 
 .bed__pillow {
   position: absolute;
-  left: 18px;
-  top: 12px;
-  width: 36%;
-  height: 22%;
+  top: 20%;
+  width: 34%;
+  height: 18%;
   background: var(--pillow);
-  border-radius: 14px;
+  border-radius: 14px 14px 16px 16px;
   box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.08);
+}
+
+.bed__pillow--1 {
+  left: 18px;
+}
+
+.bed__pillow--2 {
+  left: 56px;
+  opacity: 0.92;
 }
 
 .lamp {
@@ -374,26 +550,53 @@ body {
   transform: translateX(-50%);
 }
 
+.lamp__glow {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 120px;
+  height: 120px;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 65%);
+  opacity: 0.55;
+  filter: blur(1px);
+}
+
 .lamp__shade {
   position: absolute;
   left: 50%;
   top: 10px;
   width: 54px;
-  height: 34px;
+  height: 36px;
   transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.86);
-  border-radius: 12px 12px 16px 16px;
-  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.72));
+  border-radius: 12px 12px 18px 18px;
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.08),
+    0 14px 26px rgba(0, 0, 0, 0.18);
+  clip-path: polygon(18% 0%, 82% 0%, 100% 100%, 0% 100%);
+}
+
+.lamp__bulb {
+  position: absolute;
+  left: 50%;
+  top: 34px;
+  width: 16px;
+  height: 18px;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 999px;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
 }
 
 .lamp__pole {
   position: absolute;
   left: 50%;
-  top: 40px;
-  width: 10px;
-  height: calc(100% - 68px);
+  top: 54px;
+  width: 12px;
+  height: calc(100% - 78px);
   transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.32);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.22));
   border-radius: 999px;
 }
 
@@ -401,10 +604,10 @@ body {
   position: absolute;
   left: 50%;
   bottom: 0;
-  width: 44px;
-  height: 14px;
+  width: 52px;
+  height: 18px;
   transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.38);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.28));
   border-radius: 999px;
 }
 
