@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Bedroom Builder</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar__title">Bedroom Builder</div>
+      <div class="topbar__hint">
+        Edit the JSON → if it’s valid, your room updates.
+      </div>
+    </header>
+
+    <main class="split">
+      <!-- TOP HALF: code -->
+      <section class="panel panel--code" aria-label="Code editor">
+        <div class="panel__row">
+          <div>
+            <div class="panel__label">ROOM SETTINGS (edit me)</div>
+            <div class="panel__sub">
+              Tip: colors can be names like "skyblue" or hex like "#ffcc00".
+            </div>
+          </div>
+          <div class="panel__buttons">
+            <button id="applyBtn" class="btn" type="button">Apply</button>
+            <button id="resetBtn" class="btn btn--ghost" type="button">
+              Reset
+            </button>
+          </div>
+        </div>
+
+        <textarea
+          id="editor"
+          class="editor"
+          spellcheck="false"
+          aria-label="Room settings JSON editor"
+        ></textarea>
+
+        <div class="status">
+          <div id="statusDot" class="status__dot" aria-hidden="true"></div>
+          <div id="statusText" class="status__text">Ready.</div>
+        </div>
+      </section>
+
+      <!-- BOTTOM HALF: bedroom preview -->
+      <section class="panel panel--room" aria-label="Room preview">
+        <div class="room" id="room">
+          <div class="room__wall">
+            <div class="poster" id="poster" aria-hidden="true">
+              <div class="poster__title" id="posterTitle">Be Kind</div>
+              <div class="poster__shape"></div>
+            </div>
+
+            <div class="window" id="window" aria-hidden="true">
+              <div class="window__sky"></div>
+              <div class="window__frame"></div>
+              <div class="window__cross"></div>
+            </div>
+          </div>
+
+          <div class="room__floor">
+            <div class="rug" id="rug" aria-hidden="true"></div>
+
+            <div class="desk" id="desk" aria-hidden="true">
+              <div class="desk__top"></div>
+              <div class="desk__leg desk__leg--left"></div>
+              <div class="desk__leg desk__leg--right"></div>
+              <div class="desk__item desk__item--book"></div>
+              <div class="desk__item desk__item--cup"></div>
+            </div>
+
+            <div class="bed" id="bed" aria-hidden="true">
+              <div class="bed__frame"></div>
+              <div class="bed__blanket"></div>
+              <div class="bed__pillow"></div>
+            </div>
+
+            <div class="lamp" id="lamp" aria-hidden="true">
+              <div class="lamp__shade"></div>
+              <div class="lamp__pole"></div>
+              <div class="lamp__base"></div>
+            </div>
+
+            <div class="plant" id="plant" aria-hidden="true">
+              <div class="plant__pot"></div>
+              <div class="plant__leaf plant__leaf--1"></div>
+              <div class="plant__leaf plant__leaf--2"></div>
+              <div class="plant__leaf plant__leaf--3"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="legend">
+          <div class="legend__title">Things you can change</div>
+          <ul class="legend__list">
+            <li>Wall / floor colors</li>
+            <li>Bed / desk / rug colors</li>
+            <li>Poster text + color</li>
+            <li>Turn plant / lamp / window on/off</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
